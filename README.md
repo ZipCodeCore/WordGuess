@@ -162,6 +162,4 @@ You don't want to lose any code.
         * `git push -u origin main`
 
 ### Part 2 - Submitting assignment
-* from the browser, navigate to the _forked_ project from **your** github account.
-* click the `Pull Requests` tab.
-* select `New Pull Request`
+* Turn It in - the repo url you just `push`'d
