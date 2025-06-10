@@ -1,165 +1,142 @@
-# Word Guess Game
+# Word Guess Game Lab
 
-* **Objective**
-    * To create a program which prompts a user to guess a word
-* **Purpose**
-    * To gain familiarity with strings, arrays, and console input and output
+Welcome to the Word Guess Game lab! This repository contains starter code for implementing a classic word guessing game (similar to Hangman) in either Java or Python.
 
+## Game Overview
 
-## Instructions
+In this lab, you'll be implementing a word guessing game where:
+- A secret word is chosen
+- The player guesses letters one at a time
+- Correct guesses reveal the letter's position(s) in the word
+- Incorrect guesses count against the player
+- The player wins by guessing all letters before running out of attempts
+- The player loses if they make too many incorrect guesses
 
-### As you start
+## Getting Started
 
-Right away:
-Add your name as a comment to the Wordguess.java class, and do the "git trio" in a terminal ->
+Choose your preferred programming language and follow the instructions below:
 
-```
-git add .
-git commit -m "added my name"
-git push origin main
-```
+### Java Version
 
-Check the web page for your repo, make sure your change has appeared there.
+Navigate to the `java/` directory to find:
+- `Hangman.java` - Main game class (empty, ready for implementation)
+- `Person.java` - Player class with interface
+- `PersonInterface.java` - Defines the contract for person objects
+- Test files to verify your implementation
 
-### Now Then
-
-This is a simple game creation project. You are encouraged to make your game class and then to add cool things to it.
-
-The game looks something like this when the player loses.
-
-```
-Let's Play Wordguess version 1.0
-Current Guesses: 
-_ _ _ _ 
-You have 4 tries left.
-Enter a single character: 
-f
-Current Guesses: 
-_ _ _ _ 
-You have 3 tries left.
-Enter a single character: 
-c
-Current Guesses: 
-_ _ _ _ 
-You have 2 tries left.
-Enter a single character: 
-e
-Current Guesses: 
-_ _ _ e 
-You have 1 tries left.
-Enter a single character: 
-f
-:-( :-( :-(
-_ _ _ e 
-You Lost! You ran out of guesses.
-Would you like to play again? (yes/no) 
-no
-Game Over.
+**To run Java tests:**
+```bash
+cd java
+mvn test
 ```
 
-And like this if the player wins.
+### Python Version
 
-```
-Let's Play Wordguess version 1.0
-Current Guesses: 
-_ _ _ 
-You have 3 tries left.
-Enter a single character: 
-c
-Current Guesses: 
-c _ _ 
-You have 2 tries left.
-Enter a single character: 
-t
-Current Guesses: 
-c _ t 
-You have 1 tries left.
-Enter a single character: 
-a
-**** ****
-c a t 
-Congratulations, You Won!
-Would you like to play again? (yes/no) 
-no
-Game Over.
+Navigate to the `python/` directory to find:
+- `hangman.py` - Main game class (empty, ready for implementation)
+- `person.py` - Player class implementation
+- `person_interface.py` - Abstract base class for person objects
+- Test files to verify your implementation
+
+**To run Python tests:**
+```bash
+cd python
+pip install -r requirements.txt
+pytest
 ```
 
-The idea is, the player...
+## Your Mission
 
-- starts the game
-- a random word is chosen from a list
-- the number of tries allowed is set to the length of the word
-- setup the two (the solution and the player's guesses) character arrays
-- WHILE the numbers of tries is less than tries allowed AND
-- the player has not guessed the word
-    - print the current state of the player's guesses
-    - ask the player for a letter (a character)
-    - if the letter is a minus "-", quit the game
-    - else process the letter
-    - if the letter makes the work complete,
-        - the player wins
-- after the while loop
-    - if the word is not guessed, player loses
+1. **Implement the Person class** (if not already complete)
+   - Store and manage player information (name, score, etc.)
+   - Follow the interface contract
 
-Now, another twist to the game is to add an "outer loop" which asks the player if they would like to play again. This outer loop would surround the logic in the outline above.
+2. **Implement the Hangman game class**
+   - Create a word guessing game
+   - Track guessed letters
+   - Manage game state (wins, losses, current word progress)
+   - Handle user input and game logic
 
-But for v1, just create the game to play a single word each time it is run.
-Once you have that running, add the outer loop.
-Call it v2.
+3. **Add additional features** (optional)
+   - Multiple difficulty levels
+   - Word categories
+   - Scoring system
+   - Save/load game state
 
-Write the main Wordguess class, and the needed game methods.
-Try to keep your methods small.
-If the methods get too big, break them up into smaller pieces with other methods.
-Read [Notes.md](./Notes.md) to understand more about how you might design the internals of the Wordguess class.
+## Development Strategy: Start Small, Build Incrementally
 
-BE SURE to do git commits along the way.
-You don't want to lose any code.
+Building a complete game can feel overwhelming, but the key to success is breaking it down into small, manageable pieces. Here's a proven approach that will help you build confidence while creating a working game:
 
+### Phase 1: The Minimal Game Loop (Start Here!)
+Begin with the simplest possible version - a game that runs but doesn't do much yet:
+- Create a basic main method/function that prints "Welcome to Word Guess!"
+- Add a simple loop that asks for input and echoes it back
+- Include a way to quit (like typing 'quit')
+- **Goal**: Get something running that you can interact with
 
+This might seem trivial, but having a working program from day one is psychologically powerful and gives you a foundation to build upon.
 
+### Phase 2: Add the Core Game State
+Now add the essential data structures:
+- Hard-code a simple word (like "HELLO")
+- Create variables to track: the secret word, guessed letters, and wrong guess count
+- Display the word with blanks for unguessed letters (like "H _ _ _ O")
+- **Goal**: Show the game state visually, even if logic isn't complete
 
-## How to Download
+### Phase 3: Implement Basic Guessing
+Add the core game mechanics one piece at a time:
+- Accept single letter guesses
+- Check if the letter is in the word
+- Update the display to show correct guesses
+- Count wrong guesses
+- **Goal**: The fundamental guessing mechanism works
 
-### Part 1 - Forking the Project
-* To _fork_ the project, click the `Fork` button located at the top right of the project.
+### Phase 4: Add Win/Lose Conditions
+Implement game endings:
+- Detect when all letters are guessed (win)
+- End game after too many wrong guesses (lose)
+- Display appropriate win/lose messages
+- **Goal**: Complete games that have clear outcomes
 
+### Phase 5: Polish and Enhance
+Now that you have a working game, improve it:
+- Add input validation (handle invalid inputs gracefully)
+- Implement word selection (random words, categories)
+- Add the Person class integration for player tracking
+- Improve user interface and feedback
+- **Goal**: A polished, user-friendly experience
 
-### Part 2 - Navigating to _forked_ Repository
-* Navigate to your github profile to find the _newly forked repository_.
-* Copy the URL of the project to the clipboard.
+### Why This Approach Works
+This incremental approach offers several advantages:
+- **Immediate feedback**: You always have something working to test
+- **Confidence building**: Each small success motivates the next step
+- **Easier debugging**: Problems are isolated to recent changes
+- **Natural testing**: You can verify each piece works before moving on
+- **Prevents overwhelm**: Complex problems become manageable chunks
 
-### Part 3 - Cloning _forked_ repository
-* Clone the repository from **your account** into the `~/dev` directory.
-    * if you do not have a `~/dev` directory, make one by executing the following command:
-        * `mkdir ~/dev`
-    * navigate to the `~/dev` directory by executing the following command:
-        * `cd ~/dev`
-    * clone the project by executing the following command:
-        * `git clone https://github.com/MYUSERNAME/NAMEOFPROJECT`
+Remember: professional developers work this way too! They build working prototypes first, then iterate and improve. Your first version doesn't need to be perfect - it just needs to work. You can always refactor and enhance later.
 
-### Part 4 - Check Build
-* Ensure that the tests run upon opening the project.
-    * You should see `Tests Failed: ${number-of-tests} of ${number-of-tests} tests`
-* Execute the command below to run `JUnit` tests from the command line.
-    * `mvn package -Dmaven.test.failure.ignore=true`
+Start with Phase 1 today, and you'll be surprised how quickly you progress through the remaining phases.
 
+## Testing Your Code
 
+Both versions include starter tests to help verify your implementation. Make sure all tests pass before considering your implementation complete!
 
+## Learning Objectives
 
+By completing this lab, you will practice:
+- Object-oriented programming principles
+- Interface/abstract class implementation
+- Game state management
+- User input handling
+- Test-driven development
+- Code organization and structure
 
+## Need Help?
 
+- Review the existing test files to understand expected behavior
+- Start with the Person class implementation
+- Break the Hangman game into smaller, manageable methods
+- Test frequently to catch issues early
 
-## How to Submit
-
-### Part 1 -  _Pushing_ local changes to remote repository
-* from a _terminal_ navigate to the root directory of the _cloned_ project.
-* from the root directory of the project, execute the following commands:
-    * add all changes
-        * `git add .`
-    * commit changes to be pushed
-        * `git commit -m 'I have added changes'`
-    * push changes to your repository
-        * `git push -u origin main`
-
-### Part 2 - Submitting assignment
-* Turn It in - the repo url you just `push`'d
+Happy coding! 🎮
