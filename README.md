@@ -1,6 +1,6 @@
 # Word Guess Game Lab
 
-Welcome to the Word Guess Game lab! This repository contains starter code for implementing a classic word guessing game (similar to Hangman) in either Java or Python.
+Welcome to the Word Guess Game lab! This repository contains starter code for implementing a classic word guessing game (similar to "hangman") in either Java or Python.
 
 ## Game Overview
 
@@ -19,7 +19,7 @@ Choose your preferred programming language and follow the instructions below:
 ### Java Version
 
 Navigate to the `java/` directory to find:
-- `Hangman.java` - Main game class (empty, ready for implementation)
+- `WordGuess.java` - Main game class (empty, ready for implementation)
 - `Person.java` - Player class with interface
 - `PersonInterface.java` - Defines the contract for person objects
 - Test files to verify your implementation
@@ -33,7 +33,7 @@ mvn test
 ### Python Version
 
 Navigate to the `python/` directory to find:
-- `hangman.py` - Main game class (empty, ready for implementation)
+- `wordguess.py` - Main game class (empty, ready for implementation)
 - `person.py` - Player class implementation
 - `person_interface.py` - Abstract base class for person objects
 - Test files to verify your implementation
@@ -51,7 +51,7 @@ pytest
    - Store and manage player information (name, score, etc.)
    - Follow the interface contract
 
-2. **Implement the Hangman game class**
+2. **Implement the WordGuess game class**
    - Create a word guessing game
    - Track guessed letters
    - Manage game state (wins, losses, current word progress)
@@ -136,7 +136,7 @@ By completing this lab, you will practice:
 
 - Review the existing test files to understand expected behavior
 - Start with the Person class implementation
-- Break the Hangman game into smaller, manageable methods
+- Break the WordGuess game into smaller, manageable methods
 - Test frequently to catch issues early
 
 Happy coding! 🎮
